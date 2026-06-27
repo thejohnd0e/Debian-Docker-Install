@@ -73,12 +73,6 @@ docker compose version
 sudo docker run --rm hello-world
 ```
 
-## Known issues fixed
-
-**`E: Conflicting values set for option Signed-By`**
-
-This error occurs when Docker's repository was previously added with a different keyring file (`docker.gpg` vs `docker.asc`). The script automatically detects and removes all old Docker source definitions before creating a clean single-entry configuration.
-
 ## Security note
 
 Reviewing the script before execution is recommended, especially on production systems.
