@@ -1,7 +1,5 @@
 # Debian-Docker-Install
 
-# Debian Docker Install
-
 One-click installer for **Docker Engine CE** on Debian, with support for Debian 13 (Trixie).
 
 This repository provides a simple shell script that adds Docker's official APT repository, installs Docker Engine and the standard plugins, enables the Docker service, and runs a quick verification step.[1][2]
