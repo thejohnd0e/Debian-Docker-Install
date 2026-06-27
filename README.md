@@ -36,6 +36,11 @@ chmod +x debian-docker-install.sh
 sudo ./debian-docker-install.sh
 ```
 
+## Uninstall
+```bash
+curl -fsSL https://raw.githubusercontent.com/thejohnd0e/Debian-Docker-Install/master/debian-docker-uninstall.sh | bash
+```
+
 ## What the script does
 
 1. Checks that the host system is Debian
