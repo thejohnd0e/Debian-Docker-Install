@@ -8,6 +8,15 @@ need_root() {
   [[ "${EUID}" -ne 0 ]] && fail "Run as root: sudo bash $0"
 }
 
+fix_hostname() {
+  local hn
+  hn="$(hostname)"
+  if ! grep -qE "(^127\.|^::1)[[:space:]].*\b${hn}\b" /etc/hosts 2>/dev/null; then
+    log "Fixing /etc/hosts: adding hostname '${hn}'..."
+    echo "127.0.0.1 ${hn}" >> /etc/hosts
+  fi
+}
+
 pkg_installed() {
   dpkg-query -W -f='${Status}\n' "$1" 2>/dev/null | grep -q "install ok installed"
 }
@@ -96,6 +105,7 @@ remove_leftovers() {
 
 main() {
   need_root
+  fix_hostname
   log "=== Debian Docker Uninstaller ==="
   log ""
   if ! any_docker_installed; then
